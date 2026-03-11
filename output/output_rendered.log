@@ -1,0 +1,82 @@
+Camera: 1200×680, fx=600.0, fy=600.0, depth_scale=6553.5
+
+══ Step 1: Depth → Mesh ══
+  Mesh 0  (agent0):  50,988 verts, 100,629 faces
+  Mesh 1  (agent1):  50,991 verts, 100,601 faces
+  After decimation:
+  Mesh 0:  25,443 verts,  49,999 faces
+  Mesh 1:  25,458 verts,  49,999 faces
+
+══ Step 2: LBO + Functional Map ══
+
+Computing Laplacian spectrum
+Computing 200 eigenvectors
+	Done in 4.75 s
+Computing 200 eigenvectors
+	Done in 4.74 s
+
+Computing descriptors
+	Normalizing descriptors
+
+	100 out of 100 possible descriptors kept
+Computing commutativity operators
+	Scaling LBO commutativity weight by 1.4e-06
+
+Optimization :
+	50 Ev on source - 50 Ev on Target
+	Using 100 Descriptors
+	Hyperparameters :
+		Descriptors preservation :1.0e-01
+		Descriptors commutativity :1.0e+00
+		Laplacian commutativity :1.0e-03
+		Orientation preservation :0.0e+00
+
+	Task : CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH, funcall : 224, nit : 217, warnflag : 0
+	Done in 1.20 seconds
+  p2p map (coarse): 25458 correspondences
+  p2p map (refined): 25458 correspondences
+
+══ Step 2b: Coarse Transformation (pre-ICP) ══
+  Inliers: 2400/25458 (9.4%)
+
+  Coarse T (agent1 → agent0):
+[[ 0.99856195  0.00269741 -0.05354203  0.20915163]
+ [-0.00311128  0.99996591 -0.00764797  0.08253139]
+ [ 0.05351957  0.00780356  0.99853631 -0.05813515]
+ [ 0.          0.          0.          1.        ]]
+
+══ Step 3: Refined Transformation (post-ICP) ══
+  Inliers: 4314/25458 (16.9%)
+
+  Refined T (agent1 → agent0):
+[[ 0.99229256 -0.06305536 -0.10667469  0.30905046]
+ [ 0.06183701  0.99797809 -0.01469387  0.03387099]
+ [ 0.10738553  0.00798418  0.9941854  -0.09894474]
+ [ 0.          0.          0.          1.        ]]
+
+══ Step 4: Comparison with Ground Truth ══
+  Ground-truth T:
+[[ 0.99375227 -0.04976216 -0.09989853  0.15608286]
+ [ 0.04853297  0.99871322 -0.01469871  0.04212206]
+ [ 0.10050147  0.00975858  0.99488908 -0.13055954]
+ [ 0.          0.          0.          1.        ]]
+
+  ── Coarse (pre-ICP) ──
+  Rotation error:    4.0254°
+  Translation error: 0.098461 m
+
+  ── Refined (post-ICP) ──
+  Rotation error:    0.8634°
+  Translation error: 0.156418 m
+
+  Estimated  R:
+[[ 0.99229256 -0.06305536 -0.10667469]
+ [ 0.06183701  0.99797809 -0.01469387]
+ [ 0.10738553  0.00798418  0.9941854 ]]
+  GT         R:
+[[ 0.99375227 -0.04976216 -0.09989853]
+ [ 0.04853297  0.99871322 -0.01469871]
+ [ 0.10050147  0.00975858  0.99488908]]
+
+  Estimated  t: [ 0.30905046  0.03387099 -0.09894474]
+  GT         t: [ 0.15608286  0.04212206 -0.13055954]

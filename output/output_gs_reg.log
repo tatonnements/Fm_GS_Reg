@@ -1,0 +1,52 @@
+============================================================
+Step 1: Loading 3D Gaussian submaps
+============================================================
+  Agent0: 59773 Gaussians
+  Agent1: 48136 Gaussians
+
+============================================================
+Step 2: Graph filtration and LBO computation
+============================================================
+  Filtering agent0...
+  Graph filtration: 58976/59773 points in largest component
+  Computing LBO for agent0...
+  Agent0 LBO: 80 eigenvalues, evecs shape (58976, 80)
+  Filtering agent1...
+  Graph filtration: 46901/48136 points in largest component
+  Computing LBO for agent1...
+  Agent1 LBO: 80 eigenvalues, evecs shape (46901, 80)
+
+============================================================
+Step 3: Computing spectral descriptors and functional map
+============================================================
+  Descriptors: agent0 (58976, 100), agent1 (46901, 100)
+  Functional map C shape: (30, 30)
+  P2P map shape: (46901,)
+  Refining with ZoomOut...
+  ZoomOut refined: C shape (75, 75), p2p shape (46901,)
+
+============================================================
+Step 4: Estimating rigid transformation from correspondences
+============================================================
+  Running RANSAC on functional map correspondences...
+  RANSAC: 25831/46901 inliers (55.1%)
+
+  Estimated transformation (agent1 -> agent0):
+[[ 0.1382492  -0.50444534  0.85230397 -3.45838048]
+ [ 0.55092697  0.75430373  0.35707893  0.07212531]
+ [-0.82302286  0.42019136  0.38219443 -0.17977333]
+ [ 0.          0.          0.          1.        ]]
+
+============================================================
+Step 5: Comparison with ground truth
+============================================================
+  Ground truth transformation:
+[[ 0.99375227 -0.04976216 -0.09989853  0.15608286]
+ [ 0.04853297  0.99871322 -0.01469871  0.04212206]
+ [ 0.10050147  0.00975858  0.99488908 -0.13055954]
+ [ 0.          0.          0.          1.        ]]
+
+  Rotation error:    85.5898 degrees
+  Translation error: 3.614923 (Euclidean)
+  Translation GT norm: 0.207803
+  Relative trans error: 1739.59%
