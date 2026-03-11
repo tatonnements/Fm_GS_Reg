@@ -1,26 +1,26 @@
 Camera: 1200×680, fx=600.0, fy=600.0, depth_scale=6553.5
 
 ══ Step 1: Depth → Mesh ══
-  Mesh 0  (agent0):  50,988 verts, 100,629 faces
-  Mesh 1  (agent1):  50,991 verts, 100,601 faces
+  Mesh 0  (agent0):  50,998 verts, 100,649 faces
+  Mesh 1  (agent1):  50,998 verts, 100,608 faces
   After decimation:
-  Mesh 0:  25,443 verts,  49,999 faces
-  Mesh 1:  25,458 verts,  49,999 faces
+  Mesh 0:  25,431 verts,  50,000 faces
+  Mesh 1:  25,421 verts,  50,000 faces
 
 ══ Step 2: LBO + Functional Map ══
 
 Computing Laplacian spectrum
 Computing 200 eigenvectors
-	Done in 4.75 s
+	Done in 4.89 s
 Computing 200 eigenvectors
-	Done in 4.74 s
+	Done in 4.70 s
 
 Computing descriptors
 	Normalizing descriptors
 
 	100 out of 100 possible descriptors kept
 Computing commutativity operators
-	Scaling LBO commutativity weight by 1.4e-06
+	Scaling LBO commutativity weight by 1.5e-06
 
 Optimization :
 	50 Ev on source - 50 Ev on Target
@@ -31,27 +31,27 @@ Optimization :
 		Laplacian commutativity :1.0e-03
 		Orientation preservation :0.0e+00
 
-	Task : CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH, funcall : 224, nit : 217, warnflag : 0
-	Done in 1.20 seconds
-  p2p map (coarse): 25458 correspondences
-  p2p map (refined): 25458 correspondences
+	Task : CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL, funcall : 215, nit : 209, warnflag : 0
+	Done in 1.11 seconds
+  p2p map (coarse): 25421 correspondences
+  p2p map (refined): 25421 correspondences
 
 ══ Step 2b: Coarse Transformation (pre-ICP) ══
-  Inliers: 2400/25458 (9.4%)
+  Inliers: 2073/25421 (8.2%)
 
   Coarse T (agent1 → agent0):
-[[ 0.99856195  0.00269741 -0.05354203  0.20915163]
- [-0.00311128  0.99996591 -0.00764797  0.08253139]
- [ 0.05351957  0.00780356  0.99853631 -0.05813515]
+[[ 0.98795331 -0.09045701 -0.12556187  0.38527443]
+ [ 0.08998343  0.99589843 -0.00945013  0.04523928]
+ [ 0.1259017  -0.0019622   0.99204078 -0.0754979 ]
  [ 0.          0.          0.          1.        ]]
 
 ══ Step 3: Refined Transformation (post-ICP) ══
-  Inliers: 4314/25458 (16.9%)
+  Inliers: 4289/25421 (16.9%)
 
   Refined T (agent1 → agent0):
-[[ 0.99229256 -0.06305536 -0.10667469  0.30905046]
- [ 0.06183701  0.99797809 -0.01469387  0.03387099]
- [ 0.10738553  0.00798418  0.9941854  -0.09894474]
+[[ 0.99503331 -0.04739346 -0.08753614  0.22581118]
+ [ 0.04528044  0.99863669 -0.02596989  0.05326107]
+ [ 0.0886476   0.02187723  0.99582277 -0.10782416]
  [ 0.          0.          0.          1.        ]]
 
 ══ Step 4: Comparison with Ground Truth ══
@@ -62,21 +62,21 @@ Optimization :
  [ 0.          0.          0.          1.        ]]
 
   ── Coarse (pre-ICP) ──
-  Rotation error:    4.0254°
-  Translation error: 0.098461 m
+  Rotation error:    2.8344°
+  Translation error: 0.235733 m
 
   ── Refined (post-ICP) ──
-  Rotation error:    0.8634°
-  Translation error: 0.156418 m
+  Rotation error:    0.9814°
+  Translation error: 0.074182 m
 
   Estimated  R:
-[[ 0.99229256 -0.06305536 -0.10667469]
- [ 0.06183701  0.99797809 -0.01469387]
- [ 0.10738553  0.00798418  0.9941854 ]]
+[[ 0.99503331 -0.04739346 -0.08753614]
+ [ 0.04528044  0.99863669 -0.02596989]
+ [ 0.0886476   0.02187723  0.99582277]]
   GT         R:
 [[ 0.99375227 -0.04976216 -0.09989853]
  [ 0.04853297  0.99871322 -0.01469871]
  [ 0.10050147  0.00975858  0.99488908]]
 
-  Estimated  t: [ 0.30905046  0.03387099 -0.09894474]
+  Estimated  t: [ 0.22581118  0.05326107 -0.10782416]
   GT         t: [ 0.15608286  0.04212206 -0.13055954]

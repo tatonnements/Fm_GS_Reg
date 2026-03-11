@@ -3,7 +3,7 @@
 Depth-image registration using Functional Maps.
 
 Pipeline:
-  1. Load depth images and camera intrinsics.
+  1. Load rendred depth images and camera intrinsics.
   2. Back-project depth images into 3D and triangulate an organized mesh.
   3. Compute LBO eigenfunctions on both meshes and build functional-map
      correspondences (pyFM) with outlier removal.
@@ -216,7 +216,7 @@ def translation_error(t_est, t_gt):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Depth-camera registration via Functional Maps"
+        description="Rendered-camera registration via Functional Maps"
     )
     parser.add_argument(
         "--data_dir",
